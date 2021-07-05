@@ -24,13 +24,15 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:background="@drawable/item_circular_color_accent_border">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/start"
-                android:textColor="@color/Primary"/>
+                android:textColor="@color/Primary"
+                android:textSize="22sp"/>
         </LinearLayout>
 
     </LinearLayout>
