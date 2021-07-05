@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExerciseActivity">
+    tools:context=".ExerciseActivity"
+    android:orientation="vertical">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_exercise_activity"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/white"/>
+        android:background="@color/Dark"/>
 
 </RelativeLayout>
