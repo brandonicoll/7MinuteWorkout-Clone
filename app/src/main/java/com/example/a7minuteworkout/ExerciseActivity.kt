@@ -83,7 +83,7 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                if (currentExercisePosition < 11) {
+                if (currentExercisePosition < (exerciseList?.size!! - 1)) {
                     setupRestView()
                 }
                 else {
