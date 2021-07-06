@@ -15,6 +15,9 @@ class ExerciseActivity : AppCompatActivity() {
     private var exerciseTimer: CountDownTimer? = null
     private var exerciseProgress = 0
 
+    private var exerciseList: ArrayList<ExerciseModel>? = null //STARTS AS NULL -> check line 36 where i initalize it using the constants class
+    private var currentExercisePosition = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercise)
@@ -29,6 +32,8 @@ class ExerciseActivity : AppCompatActivity() {
         }
 
         setupRestView()
+
+        exerciseList = Constants.defaultExerciseList()
     }
 
     override fun onDestroy() {
@@ -49,7 +54,7 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                Toast.makeText(this@ExerciseActivity, "The exercise with now start.", Toast.LENGTH_SHORT).show()
+                currentExercisePosition ++
                 setupExerciseView()
             }
         }.start()
@@ -74,7 +79,7 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                Toast.makeText(this@ExerciseActivity, "The next rest timer will start.", Toast.LENGTH_SHORT).show()
+
             }
         }.start()
 
