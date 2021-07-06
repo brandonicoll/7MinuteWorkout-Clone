@@ -79,7 +79,12 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-
+                if (currentExercisePosition < 11) {
+                    setupRestView()
+                }
+                else {
+                    TODO("Workout is finished")
+                }
             }
         }.start()
 
@@ -95,6 +100,9 @@ class ExerciseActivity : AppCompatActivity() {
             exerciseProgress = 0
         }
         setExerciseProgressBar()
+
+        ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage()) //access arraylist at index and then the function we made in ExerciseModel.kt
+        tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
     }
 
 }
