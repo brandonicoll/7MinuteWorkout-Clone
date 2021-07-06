@@ -31,9 +31,9 @@ class ExerciseActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        exerciseList = Constants.defaultExerciseList() //NEED TO DECLARE THIS BEFORE SETUP() > otherwise crash
         setupRestView()
 
-        exerciseList = Constants.defaultExerciseList()
     }
 
     override fun onDestroy() {
@@ -71,6 +71,7 @@ class ExerciseActivity : AppCompatActivity() {
             restProgress = 0
         }
         setRestProgressBar()
+        upcomingExercise.text = exerciseList!![currentExercisePosition + 1].getName()
     }
 
     private fun setExerciseProgressBar() {
