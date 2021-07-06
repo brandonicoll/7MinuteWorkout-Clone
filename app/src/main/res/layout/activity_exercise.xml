@@ -72,6 +72,7 @@
             android:layout_height="wrap_content"
             android:text="@string/upcoming_exercise"
             android:textColor="@color/Primary"
+            android:layout_marginTop="15dp"
             android:textSize="18sp"
             />
 

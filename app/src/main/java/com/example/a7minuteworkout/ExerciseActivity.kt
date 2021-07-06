@@ -3,11 +3,15 @@ package com.example.a7minuteworkout
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_exercise.*
+import java.util.*
+import kotlin.collections.ArrayList
 
-class ExerciseActivity : AppCompatActivity() {
+class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private var restTimer: CountDownTimer? = null
     private var restProgress = 0
@@ -17,6 +21,8 @@ class ExerciseActivity : AppCompatActivity() {
 
     private var exerciseList: ArrayList<ExerciseModel>? = null //STARTS AS NULL -> check line 36 where i initalize it using the constants class
     private var currentExercisePosition = -1
+
+    private var tts: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +37,11 @@ class ExerciseActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        tts = TextToSpeech(this, this)
         exerciseList = Constants.defaultExerciseList() //NEED TO DECLARE THIS BEFORE SETUP() > otherwise crash
         setupRestView()
+
+
 
     }
 
@@ -41,6 +50,17 @@ class ExerciseActivity : AppCompatActivity() {
             restTimer!!.cancel()
             restProgress = 0
         }
+
+        if(exerciseTimer != null) {
+            exerciseTimer!!.cancel()
+            exerciseProgress = 0
+        }
+
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+
         super.onDestroy()
     }
 
@@ -104,10 +124,29 @@ class ExerciseActivity : AppCompatActivity() {
             exerciseTimer!!.cancel()
             exerciseProgress = 0
         }
+
+        speakOut(exerciseList!![currentExercisePosition].getName())
         setExerciseProgressBar()
 
         ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage()) //access arraylist at index and then the function we made in ExerciseModel.kt
         tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
+    }
+
+    private fun speakOut(text: String) {
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.CANADA)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "Language is not supported.")
+            }
+            else {
+                Log.e("TTS", "Initialization failed.")
+            }
+        }
     }
 
 }
