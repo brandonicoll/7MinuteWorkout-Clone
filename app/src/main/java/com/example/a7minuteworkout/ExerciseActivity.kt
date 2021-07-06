@@ -62,6 +62,10 @@ class ExerciseActivity : AppCompatActivity() {
     }
 
     private fun setupRestView() {
+
+        llExerciseView.visibility = View.GONE
+        llRestView.visibility = View.VISIBLE
+
         if(restTimer != null) {
             restTimer!!.cancel()
             restProgress = 0
