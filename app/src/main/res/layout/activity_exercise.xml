@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="GET READY"
-            android:textColor="@color/Primary"
+            android:textColor="@color/Accent"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -93,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Exercise Name"
-            android:textColor="@color/Primary"
+            android:textColor="@color/Accent"
             android:textSize="18sp"
             android:textStyle="bold" />
 
