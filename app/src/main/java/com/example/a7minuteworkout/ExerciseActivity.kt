@@ -12,6 +12,9 @@ class ExerciseActivity : AppCompatActivity() {
     private var restTimer: CountDownTimer? = null
     private var restProgress = 0
 
+    private var exerciseTimer: CountDownTimer? = null
+    private var exerciseProgress = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercise)
@@ -47,6 +50,7 @@ class ExerciseActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 Toast.makeText(this@ExerciseActivity, "The exercise with now start.", Toast.LENGTH_SHORT).show()
+                setupExerciseView()
             }
         }.start()
 
@@ -58,6 +62,34 @@ class ExerciseActivity : AppCompatActivity() {
             restProgress = 0
         }
         setRestProgressBar()
+    }
+
+    private fun setExerciseProgressBar() {
+        progressBarExercise.progress = exerciseProgress
+        exerciseTimer = object : CountDownTimer(30000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                exerciseProgress++
+                progressBarExercise.progress = 30-exerciseProgress
+                tvExerciseTimer.text = (30 - exerciseProgress).toString()
+            }
+
+            override fun onFinish() {
+                Toast.makeText(this@ExerciseActivity, "The next rest timer will start.", Toast.LENGTH_SHORT).show()
+            }
+        }.start()
+
+    }
+
+    private fun setupExerciseView() {
+
+        llRestView.visibility = View.GONE
+        llExerciseView.visibility = View.VISIBLE
+
+        if(exerciseTimer != null) {
+            exerciseTimer!!.cancel()
+            exerciseProgress = 0
+        }
+        setExerciseProgressBar()
     }
 
 }
