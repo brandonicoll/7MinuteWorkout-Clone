@@ -132,7 +132,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     setupRestView()
                 }
                 else {
-                    TODO("Workout is finished")
                     finish()
                     var intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
                     startActivity(intent)

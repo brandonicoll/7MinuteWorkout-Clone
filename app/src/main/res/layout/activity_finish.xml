@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".FinishActivity">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_finish_activity"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
@@ -30,10 +32,11 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:contentDescription="image"
-            android:src="@drawable/ic_action_done" />
+            android:layout_gravity="center"
+            android:src="@drawable/ic_check_done" />
     </LinearLayout>
 
     <TextView
