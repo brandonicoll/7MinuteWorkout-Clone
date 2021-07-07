@@ -2,4 +2,8 @@
     <string name="app_name">7 Minute Workout</string>
     <string name="start">START</string>
     <string name="upcoming_exercise">Upcoming exercise:</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="this_will_stop_your_workout_you_ve_come_this_far_are_you_sure_you_want_to_quit">This will stop your workout. You\'ve come this far, are you sure you want to quit?</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
 </resources>
