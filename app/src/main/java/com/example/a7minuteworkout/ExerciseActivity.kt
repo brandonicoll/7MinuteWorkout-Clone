@@ -1,5 +1,6 @@
 package com.example.a7minuteworkout
 
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -132,6 +133,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
                 else {
                     TODO("Workout is finished")
+                    finish()
+                    var intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }.start()
