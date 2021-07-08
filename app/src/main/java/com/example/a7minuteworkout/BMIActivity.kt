@@ -69,7 +69,7 @@ class BMIActivity : AppCompatActivity() {
         etMetricUnitWeight.text!!.clear() //clearing the text
         etMetricUnitHeight.text!!.clear()
 
-        llDiplayBMIResult.visibility = View.GONE
+        llDiplayBMIResult.visibility = View.INVISIBLE
     }
 
     private fun makeVisibleUSUnitsView() {
@@ -81,7 +81,7 @@ class BMIActivity : AppCompatActivity() {
         etUsUnitHeightInch.text!!.clear()
         etUsUnitWeight.text!!.clear()
 
-        llDiplayBMIResult.visibility = View.GONE
+        llDiplayBMIResult.visibility = View.INVISIBLE
     }
 
 
