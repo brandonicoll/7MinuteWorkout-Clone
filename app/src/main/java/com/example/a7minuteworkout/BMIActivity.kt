@@ -75,15 +75,12 @@ class BMIActivity : AppCompatActivity() {
 
     private fun makeVisibleUSUnitsView() {
         currentVisibleView = US_UNITS_VIEW
-        tilMetricUnitWeight.visibility = View.GONE //metric visibility is gone
-        tilMetricUnitHeight.visibility = View.GONE
+        llMetricUnitsView.visibility = View.GONE // METRIC UNITS VIEW is hidden
+        llUsUnitsView.visibility = View.VISIBLE // US UNITS VIEW is Visible
 
         etUsUnitHeightFeet.text!!.clear() //clearing the text
         etUsUnitHeightInch.text!!.clear()
         etUsUnitWeight.text!!.clear()
-
-        tilUsUnitWeight.visibility = View.VISIBLE //US is visible
-        llUsUnitsHeight.visibility = View.VISIBLE
 
         llDiplayBMIResult.visibility = View.GONE
     }
