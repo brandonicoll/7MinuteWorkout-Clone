@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.RadioGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_bmiactivity.*
 import java.math.BigDecimal
@@ -48,7 +49,7 @@ class BMIActivity : AppCompatActivity() {
 
         makeVisibleMetricUnitsView()
 
-        rgUnits.setOnCheckedChangeListener { group, checkedId ->  //on checked listener for the radio buttons
+        rgUnits.setOnCheckedChangeListener { radioGroup: RadioGroup, checkedId ->
             if (checkedId == R.id.rbMetricUnits) {
                 makeVisibleMetricUnitsView()
             }
@@ -61,14 +62,12 @@ class BMIActivity : AppCompatActivity() {
 
     private fun makeVisibleMetricUnitsView() {
         currentVisibleView = METRIC_UNITS_VIEW
-        tilMetricUnitWeight.visibility = View.VISIBLE
-        tilMetricUnitHeight.visibility = View.VISIBLE
+
+        llMetricUnitsView.visibility = View.VISIBLE // METRIC UNITS VIEW is Visible
+        llUsUnitsView.visibility = View.GONE // US UNITS VIEW is hidden
 
         etMetricUnitWeight.text!!.clear() //clearing the text
         etMetricUnitHeight.text!!.clear()
-
-        tilUsUnitWeight.visibility = View.GONE
-        llUsUnitsHeight.visibility = View.GONE
 
         llDiplayBMIResult.visibility = View.GONE
     }
