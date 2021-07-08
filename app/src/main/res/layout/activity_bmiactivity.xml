@@ -31,7 +31,7 @@
                 android:id="@+id/etMetricUnitWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="WEIGHT (in kg)"
+                android:hint="@string/weight_in_kg"
                 android:inputType="numberDecimal"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -47,7 +47,7 @@
                 android:id="@+id/etMetricUnitHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="HEIGHT (in cm)"
+                android:hint="@string/height_in_cm"
                 android:inputType="numberDecimal"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="YOUR BMI"
+                android:text="@string/your_bmi"
                 android:textAllCaps="true"
                 android:visibility="invisible"
                 android:textSize="16sp" />
@@ -107,7 +107,7 @@
             android:layout_gravity="bottom"
             android:layout_marginTop="35dp"
             android:background="@color/Accent"
-            android:text="CALCULATE"
+            android:text="@string/calculate"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
     </LinearLayout>
