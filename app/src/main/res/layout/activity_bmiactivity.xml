@@ -163,7 +163,6 @@
 
             </LinearLayout>
         </LinearLayout>
-        <!--END-->
 
         <LinearLayout
             android:id="@+id/llDiplayBMIResult"
