@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_finish.*
+import java.util.*
 
 class FinishActivity : AppCompatActivity() {
     @SuppressLint("RestrictedApi")
@@ -25,6 +26,15 @@ class FinishActivity : AppCompatActivity() {
         btnFinish.setOnClickListener {
             finish()
         }
+
+
+
+    }
+
+    private fun addDateToDatabase() {
+        val calendar = Calendar.getInstance()
+        val dateTime = calendar.time //get current date an time
+
 
     }
 }
