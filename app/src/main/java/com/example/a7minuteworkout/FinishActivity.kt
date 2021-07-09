@@ -29,7 +29,7 @@ class FinishActivity : AppCompatActivity() {
             finish()
         }
 
-
+        addDateToDatabase()
 
     }
 
@@ -41,5 +41,8 @@ class FinishActivity : AppCompatActivity() {
         val sdf = SimpleDateFormat("dd MMM yyyy HH:mm:ss", Locale.getDefault())
         val date = sdf.format(dateTime) //makes date with the format patter of sdf
 
+        val dbHandler = SqliteOpenHelper(this, null)
+        dbHandler.addDate(date) //calls addDate fun and writes to the database
+        Log.i("DATE:", "added")
     }
 }
