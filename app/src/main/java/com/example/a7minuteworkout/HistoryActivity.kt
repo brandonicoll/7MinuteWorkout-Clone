@@ -31,7 +31,7 @@ class HistoryActivity : AppCompatActivity() {
         val allCompletedDatesList = dbHandler.getAllCompletedDatesList() //store the arraylist from function in SqliteOpenHelper to this var
 
         for (i in allCompletedDatesList) {
-            Log.i("Date:" + "" + i)
+            Log.i("Date - HISTORY:",  "" + i)
         }
     }
 
