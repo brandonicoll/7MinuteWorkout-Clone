@@ -3,6 +3,7 @@ package com.example.a7minuteworkout
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_bmiactivity.*
 import kotlinx.android.synthetic.main.activity_history.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,4 +25,14 @@ class HistoryActivity : AppCompatActivity() {
             onBackPressed()
         }
     }
+
+    private fun getAllCompletedDates() { //used to fill recycler view
+        val dbHandler = SqliteOpenHelper(this, null)
+        val allCompletedDatesList = dbHandler.getAllCompletedDatesList() //store the arraylist from function in SqliteOpenHelper to this var
+
+        for (i in allCompletedDatesList) {
+            Log.i("Date:" + "" + i)
+        }
+    }
+
 }
