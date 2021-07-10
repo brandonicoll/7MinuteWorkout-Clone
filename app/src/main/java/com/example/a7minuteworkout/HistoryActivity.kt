@@ -24,6 +24,8 @@ class HistoryActivity : AppCompatActivity() {
         toolbar_history_activity.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        getAllCompletedDates()
     }
 
     private fun getAllCompletedDates() { //used to fill recycler view
