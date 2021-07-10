@@ -1,6 +1,9 @@
 package com.example.a7minuteworkout
 
 import android.content.Context
+import android.graphics.Color
+import android.icu.text.Transliterator
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,14 +19,29 @@ class HistoryAdapter(val context : Context, val items : ArrayList<String>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_history_row, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) { //bind the data to the list
+
+        val date = items[position]
+
+        holder.tvPosition.text = (position + 1).toString() //first entry is 0 so add 1
+        holder.tvItem.text = date
+
+        // Updating the background color according to the odd/even positions in list.
+        if (position % 2 == 0) {
+            holder.llHistoryMainItem.setBackgroundColor(
+                Color.parseColor("#EBEBEB")
+            )
+        } else {
+            holder.llHistoryMainItem.setBackgroundColor(
+                Color.parseColor("#FFFFFF")
+            )
+        }
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return items.size
     }
 }

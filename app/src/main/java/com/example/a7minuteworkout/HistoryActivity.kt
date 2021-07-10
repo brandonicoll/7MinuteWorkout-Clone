@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_bmiactivity.*
 import kotlinx.android.synthetic.main.activity_history.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,7 +35,20 @@ class HistoryActivity : AppCompatActivity() {
         val allCompletedDatesList = dbHandler.getAllCompletedDatesList() //store the arraylist from function in SqliteOpenHelper to this var
 
         for (i in allCompletedDatesList) {
-            Log.i("Date - HISTORY:",  "" + i)
+            if (allCompletedDatesList.size > 0) {
+                tvHistory.visibility = View.VISIBLE
+                rvHistory.visibility = View.VISIBLE
+                tvNoDataAvailable.visibility = View.GONE
+
+                rvHistory.layoutManager = LinearLayoutManager(this)
+                val historyAdapter = HistoryAdapter(this, allCompletedDatesList)
+                rvHistory.adapter = historyAdapter
+            }
+            else {
+                tvHistory.visibility = View.GONE
+                rvHistory.visibility = View.GONE
+                tvNoDataAvailable.visibility = View.VISIBLE
+            }
         }
     }
 
